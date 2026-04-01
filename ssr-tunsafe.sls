@@ -8,6 +8,12 @@
 {% set service_name = "ssr-tunsafe" %}
 {% set tunsafe_config = "/etc/128technology/tunsafe/tunsafe.conf" %}
 
+Install tunsafe binary:
+  file.managed:
+    - name: "{{ sbin_path }}/tunsafe"
+    - mode: 755
+    - source: salt://tunsafe
+
 Create {{ interface_dir }}:
   file.directory:
     - name: {{ interface_dir }}
